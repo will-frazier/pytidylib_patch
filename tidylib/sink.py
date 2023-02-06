@@ -76,7 +76,7 @@ class Sink(object):
         def put_byte(sink_id, byte):
             # We don't need sink_id because we have a separate put_byte
             # function for each sink
-            write_func(byte.decode('utf-8'))
+            write_func(byte.decode('utf-8', 'replace'))
 
         self.struct.putByte = PutByteType(put_byte)
         self._as_parameter_ = ctypes.byref(self.struct)
